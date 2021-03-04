@@ -14,7 +14,7 @@ class NominationSeeder extends Seeder
      */
     public function run()
     {
-        $nomination = [
+        $nominations = [
             [
                 'id' => '10',
                 'name' => 'CPU'
@@ -28,7 +28,7 @@ class NominationSeeder extends Seeder
                 'name' => 'RAM'
             ]
         ];
-        DB::table('nominations')->insert($nomination);
+        DB::table('nominations')->insert($nominations);
 
     }
 }
