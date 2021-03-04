@@ -19,7 +19,8 @@ class AdminSeeder extends Seeder
                 'username' => 'ArtemFH',
                 'password' => 'warfaswarfas',
                 'email' => 'artembereza1@mail.ru',
-                'role_id' => '3'
+                'role_id' => '3',
+                'like_nomination_id' => '30'
             ]
         ];
         DB::table('users')->insert($users);
