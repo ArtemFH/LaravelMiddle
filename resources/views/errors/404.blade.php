@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
-                <h1 style="font-size: 160px;"> 404 </h1>
+                <h1 style="font-size: 160px;">404404</h1>
                 <h2>Страница не найдена</h2>
                 <a href="/">
                     <button type="button" class="btn btn-danger">Вернуться назад</button>
