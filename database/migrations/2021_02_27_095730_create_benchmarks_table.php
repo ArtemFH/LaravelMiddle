@@ -17,7 +17,7 @@ class CreateBenchmarksTable extends Migration
             $table->id();
             $table->string('place');
             $table->string('image');
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreignId('nomination_id')->constrained('nominations')->onDelete('cascade');
             $table->timestamps();
         });
