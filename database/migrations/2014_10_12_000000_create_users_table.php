@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->nullable()->default('1')->constrained('roles')->onDelete('cascade');
             $table->foreignId('like_nomination_id')->nullable()->constrained('nominations')->onDelete('cascade');
             $table->foreignId('award_id')->nullable()->on('awards')->onDelete('cascade');
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 
