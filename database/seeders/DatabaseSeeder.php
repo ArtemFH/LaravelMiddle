@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             NominationSeeder::class,
             AwardSeeder::class,
-            AdminSeeder::class
+            AdminSeeder::class,
+            BenchmarkSeeder::class
         ]);
     }
 }

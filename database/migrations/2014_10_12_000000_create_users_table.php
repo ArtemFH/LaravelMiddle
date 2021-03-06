@@ -16,13 +16,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('username', 100)->nullable(false)->unique('username');
+            $table->string('password', 255)->nullable(false);
+            $table->string('email', 255)->nullable(false)->unique('email');
             $table->string('avatar')->nullable();
-            $table->string('username');
-            $table->string('password');
-            $table->string('email')->unique();
-            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('cascade');
+            $table->foreignId('role_id')->nullable()->default('1')->constrained('roles')->onDelete('cascade');
             $table->foreignId('like_nomination_id')->nullable()->constrained('nominations')->onDelete('cascade');
             $table->foreignId('award_id')->nullable()->on('awards')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
