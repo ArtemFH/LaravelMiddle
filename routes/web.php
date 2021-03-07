@@ -22,21 +22,13 @@ Route::name('user.')->group(function () {
 
     Route::view('/private', 'private')->middleware('auth')->name('private');
 
+    Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
+
     Route::get('/login', [\App\Http\Controllers\LoginController::class, 'checkAvailability'])->name('login');
 
+    Route::get('/registration', [\App\Http\Controllers\RegisterController::class, 'checkAvailability'])->name('registration');
+
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
-
-    Route::get('/logout', function () {
-        Auth::logout();
-        return view('login');
-    })->name('logout');
-
-    Route::get('/registration', function () {
-        if (Auth::check()) {
-            return redirect(route('user.private'));
-        }
-        return view('registration');
-    })->name('registration');
 
     Route::post('/registration', [\App\Http\Controllers\RegisterController::class, 'save']);
 });

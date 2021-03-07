@@ -39,4 +39,12 @@ class RegisterController extends Controller
             'formError' => 'Error'
         ]);
     }
+
+    public function checkAvailability()
+    {
+        if (Auth::check()) {
+            return redirect(route('user.private'));
+        }
+        return view('registration');
+    }
 }
