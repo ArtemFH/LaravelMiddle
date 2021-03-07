@@ -22,7 +22,6 @@ class LoginController extends Controller
         return redirect(route('user.login'))->withErrors([
             'username' => 'Error username',
             'email' => 'Error email'
-
         ]);
     }
 
