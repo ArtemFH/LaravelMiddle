@@ -26,4 +26,12 @@ class LoginController extends Controller
 
         ]);
     }
+
+    public function checkAvailability(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect(route('user.private'));
+        }
+        return view('login');
+    }
 }

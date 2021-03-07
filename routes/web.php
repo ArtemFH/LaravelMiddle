@@ -22,12 +22,7 @@ Route::name('user.')->group(function () {
 
     Route::view('/private', 'private')->middleware('auth')->name('private');
 
-    Route::get('/login', function () {
-        if (Auth::check()) {
-            return redirect(route('user.private'));
-        }
-        return view('login');
-    })->name('login');
+    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'checkAvailability'])->name('login');
 
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
