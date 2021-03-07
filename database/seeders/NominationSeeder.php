@@ -29,6 +29,5 @@ class NominationSeeder extends Seeder
             ]
         ];
         DB::table('nominations')->insert($nominations);
-
     }
 }

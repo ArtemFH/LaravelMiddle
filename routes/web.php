@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +13,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::view('/', 'base')->name('base');
 
-Route::get('/', function () {
-    return view('layouts.base');
-})->name('base');
+Route::view('/home', 'home', ['title' => 'Silicon Power'])->name('home');
 
 Route::name('user.')->group(function () {
     Route::get('/registration', [\App\Http\Controllers\RegisterController::class, 'checkAvailability'])->name('registration');
@@ -29,7 +24,7 @@ Route::name('user.')->group(function () {
 
     Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
 
-    Route::view('/private', 'private')->middleware('auth')->name('private');
+    Route::view('/profile', 'private')->middleware('auth')->name('private');
 
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
