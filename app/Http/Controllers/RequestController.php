@@ -6,5 +6,11 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
-    //
+    public function titleHome()
+    {
+        $data = array(
+            'title' => 'Home page'
+        );
+        return view('layouts.base')->with($data);
+    }
 }

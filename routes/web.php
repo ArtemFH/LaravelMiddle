@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'base')->name('base');
-
-Route::view('/home', 'home', ['title' => 'Silicon Power'])->name('home');
+Route::get('/', [\App\Http\Controllers\RequestController::class, 'titleHome'])->name('home');
 
 Route::name('user.')->group(function () {
     Route::get('/registration', [\App\Http\Controllers\RegisterController::class, 'checkAvailability'])->name('registration');
