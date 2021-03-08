@@ -34,10 +34,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ auth()->user()->username }}
+                            {{ auth()->user()->role_id }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="">Добавить новый пост</a>
                             <a class="dropdown-item" href="{{ route('user.logout') }}">Выход</a>
+                            @if(auth()->user()->role_id == 3)
+                                <a class="dropdown-item">Admin</a>
+                            @endif
                         </div>
                     </li>
                 @endauth

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\RequestController::class, 'titleHome'])->name('home');
+Route::get('/', [\App\Http\Controllers\RequestController::class, 'titleHome', 'adminAvialable'])->name('home');
 
 Route::name('user.')->group(function () {
     Route::get('/registration', [\App\Http\Controllers\RegisterController::class, 'checkAvailability'])->name('registration');
