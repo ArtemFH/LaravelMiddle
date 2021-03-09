@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
-class RegisterController extends Controller
+class RegistrationController extends Controller
 {
     public function save(Request $request)
     {
@@ -46,11 +46,15 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function checkAvailability()
+    public function registrationAvailability()
     {
+        $data = array(
+            'title' => 'Registration'
+        );
+
         if (Auth::check()) {
             return redirect(route('user.profile'));
         }
-        return view('registration');
+        return view('registration')->with($data);
     }
 }

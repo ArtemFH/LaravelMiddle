@@ -13,20 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\RequestController::class, 'titleHome', 'adminAvialable'])->name('home');
+Route::get('/', function () {
+    return view('home', ['title' => 'Home']);
+})->name('home');
 
 Route::name('user.')->group(function () {
-    Route::get('/registration', [\App\Http\Controllers\RegisterController::class, 'checkAvailability'])->name('registration');
+    Route::get('/registration', [\App\Http\Controllers\RegistrationController::class, 'registrationAvailability'])->name('registration');
 
-    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'checkAvailability'])->name('login');
+    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'loginAvailability'])->name('login');
 
     Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
 
-    Route::view('/profile', 'profile')->middleware('auth')->name('profile');
+    Route::post('/registration', [\App\Http\Controllers\RegistrationController::class, 'save']);
 
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
-    Route::post('/registration', [\App\Http\Controllers\RegisterController::class, 'save']);
+    Route::get('/profile', function () {
+        return view('profile', ['title' => 'Profile']);
+    })->middleware('auth')->name('profile');
 });
 
 Route::name('admin.')->group(function () {

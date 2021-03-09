@@ -24,11 +24,15 @@ class LoginController extends Controller
         ]);
     }
 
-    public function checkAvailability()
+    public function loginAvailability()
     {
+        $data = array(
+            'title' => 'Login'
+        );
+
         if (Auth::check()) {
             return redirect(route('user.profile'));
         }
-        return view('login');
+        return view('login')->with($data);
     }
 }
