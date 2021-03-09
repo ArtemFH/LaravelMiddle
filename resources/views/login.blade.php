@@ -16,7 +16,7 @@
     @csrf
     <div class="form-group">
         <label for="email" class="col-form-label-lg">Email</label>
-        <input id="email" class="form-control" name="email" type="email" value="" placeholder="Email">
+        <input id="email" class="form-control" name="email" autocomplete="off" type="email" value="" placeholder="Email">
         @error('email')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror

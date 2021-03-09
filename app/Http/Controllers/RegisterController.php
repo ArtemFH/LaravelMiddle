@@ -23,8 +23,14 @@ class RegisterController extends Controller
         ]);
 
         if (User::where('email', $validateFields['email'])->exists()) {
-            redirect(route('user.registration'))->withErrors([
+            return redirect(route('user.registration'))->withErrors([
                 'email' => 'Such email already exists'
+            ]);
+        }
+
+        if (User::where('username', $validateFields['username'])->exists()) {
+            return redirect(route('user.registration'))->withErrors([
+                'username' => 'Such username already exists'
             ]);
         }
 

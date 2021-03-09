@@ -16,8 +16,8 @@
     @csrf
     <div class="form-group">
         <label for="username" class="col-form-label-lg">Username</label>
-        <input id="username" class="form-control" name="username" type="username" value="" placeholder="Username">
-        @error('password')
+        <input id="username" class="form-control" name="username" autocomplete="off" type="username" value="" placeholder="Username">
+        @error('username')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
