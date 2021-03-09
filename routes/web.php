@@ -22,9 +22,19 @@ Route::name('user.')->group(function () {
 
     Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
 
-    Route::view('/profile', 'private')->middleware('auth')->name('private');
+    Route::view('/profile', 'profile')->middleware('auth')->name('profile');
 
     Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
     Route::post('/registration', [\App\Http\Controllers\RegisterController::class, 'save']);
+});
+
+Route::name('admin.')->group(function () {
+    Route::name('panel.')->group(function () {
+        Route::get('/admin-panel', [])->name('admin');
+    });
+
+    Route::name('moderator.')->group(function () {
+        Route::get('/moderator-panel', [])->name('moderator');
+    });
 });

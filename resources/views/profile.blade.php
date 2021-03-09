@@ -13,5 +13,6 @@
 <body>
 <h1>Private</h1>
 <div>Voice</div>
+<a href="{{ route('home') }}">Главная страница</a>
 </body>
 </html>

@@ -13,7 +13,7 @@ class RegisterController extends Controller
     public function save(Request $request)
     {
         if (Auth::check()) {
-            return redirect(route('user.private'));
+            return redirect(route('user.profile'));
         }
 
         $validateFields = $request->validate([
@@ -32,10 +32,10 @@ class RegisterController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect(route('user.private'));
+            return redirect(route('user.profile'));
         }
 
-        return redirect(route('user.private'))->withErrors([
+        return redirect(route('user.profile'))->withErrors([
             'formError' => 'Error'
         ]);
     }
@@ -43,7 +43,7 @@ class RegisterController extends Controller
     public function checkAvailability()
     {
         if (Auth::check()) {
-            return redirect(route('user.private'));
+            return redirect(route('user.profile'));
         }
         return view('registration');
     }
