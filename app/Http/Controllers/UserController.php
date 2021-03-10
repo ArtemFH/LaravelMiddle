@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
-
-class RegistrationController extends Controller
+class UserController extends Controller
 {
-    public function save(Request $request)
+    public function createUser(Request $request)
     {
         if (Auth::check()) {
             return redirect(route('user.profile'));
@@ -46,6 +44,40 @@ class RegistrationController extends Controller
         ]);
     }
 
+    public function login(Request $request)
+    {
+        if (Auth::check()) {
+            return redirect(route('user.profile'));
+        }
+
+        $formfields = $request->only(['username', 'email', 'password']);
+
+        if (Auth::attempt($formfields)) {
+            return redirect()->intended(route('user.profile'));
+        }
+
+        return redirect(route('user.login'))->withErrors([
+            'email' => 'Error email or password'
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(route('home'));
+    }
+
+    public function profileView(Request $request)
+    {
+        //Допилить
+
+        $data = array(
+            'title' => 'Profile'
+        );
+
+        return view('profile')->with($data);
+    }
+
     public function registrationAvailability()
     {
         $data = array(
@@ -56,5 +88,17 @@ class RegistrationController extends Controller
             return redirect(route('user.profile'));
         }
         return view('registration')->with($data);
+    }
+
+    public function loginAvailability()
+    {
+        $data = array(
+            'title' => 'Login'
+        );
+
+        if (Auth::check()) {
+            return redirect(route('user.profile'));
+        }
+        return view('login')->with($data);
     }
 }
