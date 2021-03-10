@@ -18,27 +18,23 @@ Route::get('/', function () {
 })->name('home');
 
 Route::name('user.')->group(function () {
-    Route::get('/registration', [\App\Http\Controllers\RegistrationController::class, 'registrationAvailability'])->name('registration');
+    Route::get('/registration', [\App\Http\Controllers\UserController::class, 'registrationAvailability'])->name('registration');
 
-    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'loginAvailability'])->name('login');
+    Route::get('/login', [\App\Http\Controllers\UserController::class, 'loginAvailability'])->name('login');
 
-    Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
-    Route::post('/registration', [\App\Http\Controllers\RegistrationController::class, 'save']);
+    Route::post('/registration', [\App\Http\Controllers\UserController::class, 'createUser']);
 
-    Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
+    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
-    Route::get('/profile', function () {
-        return view('profile', ['title' => 'Profile']);
-    })->middleware('auth')->name('profile');
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profileView'])->middleware('auth')->name('profile');
 });
 
 Route::name('admin.')->group(function () {
-    Route::name('panel.')->group(function () {
-        Route::get('/admin-panel', [])->name('admin');
-    });
+    Route::get('/admin-panel', [\App\Http\Controllers\AdminController::class, 'index'])->name('panel');
+});
 
-    Route::name('moderator.')->group(function () {
-        Route::get('/moderator-panel', [])->name('moderator');
-    });
+Route::name('moderator.')->group(function () {
+    Route::get('/moderator-panel', [])->name('panel');
 });

@@ -21,10 +21,16 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'role_id'
     ];
 
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function roles()
+    {
+        return $this->hasOne('App\Models\Role');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,9 @@ class AdminController extends Controller
         return view('login');
     }
 
-    public function blabla()
+    public function index()
     {
-
+        $users = User::orderBy('created_at', 'DESC')->get();
+        return view('admin.users.index', compact('users'));
     }
 }
