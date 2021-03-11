@@ -29,8 +29,17 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($password);
     }
 
-//    public function roles()
-//    {
-//        return $this->hasOne(Role::class);
-//    }
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function hardware()
+    {
+        return $this->hasOne(Hardware::class);
+    }
 }
+
+
+//hasMany 1 к 100
+//

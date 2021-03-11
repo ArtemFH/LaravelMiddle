@@ -38,9 +38,9 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="">Добавить новый пост</a>
                             <a class="dropdown-item" href="{{ route('user.logout') }}">Выход</a>
-                            @if(auth()->user()->role_id == 3)
+                            @can('admin')
                                 <a class="dropdown-item" href="{{ route('admin.panel') }}">Admin</a>
-                            @endif
+                            @endcan
                         </div>
                     </li>
                 @endauth
