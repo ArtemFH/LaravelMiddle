@@ -24,11 +24,11 @@ Route::name('user.')->group(function () {
 
     Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profileView'])->middleware('auth')->name('profile');
+
     Route::post('/registration', [\App\Http\Controllers\UserController::class, 'createUser']);
 
     Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
-
-    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profileView'])->middleware('auth')->name('profile');
 });
 
 Route::name('admin.')->group(function () {

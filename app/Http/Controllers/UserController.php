@@ -10,10 +10,6 @@ class UserController extends Controller
 {
     public function createUser(Request $request)
     {
-        if (Auth::check()) {
-            return redirect(route('user.profile'));
-        }
-
         $validateFields = $request->validate([
             'username' => 'required',
             'email' => 'required|email',
@@ -46,10 +42,6 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        if (Auth::check()) {
-            return redirect(route('user.profile'));
-        }
-
         $formfields = $request->only(['username', 'email', 'password']);
 
         if (Auth::attempt($formfields)) {
