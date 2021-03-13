@@ -15,14 +15,4 @@ class RequestController extends Controller
         return view('layouts.base')->with($data);
 
     }
-
-    public function adminAvialable()
-    {
-        Blade::if('admin', function () {
-            if (auth()->user() && auth()->user()->admin()) {
-                return 1;
-            }
-            return 0;
-        });
-    }
 }

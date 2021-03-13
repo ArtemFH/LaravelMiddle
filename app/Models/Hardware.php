@@ -9,6 +9,8 @@ class Hardware extends Model
 {
     use HasFactory;
 
+    protected $table = 'hardwares';
+
     protected $fillable = [
         'CPU',
         'GPU',
@@ -16,6 +18,10 @@ class Hardware extends Model
         'PSU',
         'storage',
         'motherboard',
-        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'name');
+    }
 }

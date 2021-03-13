@@ -21,7 +21,6 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'role_id'
     ];
 
     public function setPasswordAttribute($password)
@@ -34,12 +33,13 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function like_nomination()
+    {
+        return $this->belongsTo(Nomination::class);
+    }
+
     public function hardware()
     {
-        return $this->hasOne(Hardware::class);
+        return $this->belongsTo(Hardware::class);
     }
 }
-
-
-//hasMany 1 к 100
-//
