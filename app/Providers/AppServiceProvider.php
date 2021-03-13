@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         Gate::before(function ($user, $role) {
             return $user->role->name === $role;
         });
+
     }
 }
