@@ -9,6 +9,8 @@ class Nomination extends Model
 {
     use HasFactory;
 
+    protected $table = 'nomination';
+
     protected $fillable = [
         'name',
     ];
