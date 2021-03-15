@@ -33,7 +33,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function nomination()
+    public function like_nomination()
     {
         return $this->belongsTo(Nomination::class);
     }

@@ -31,11 +31,7 @@
                 </li>
                 @auth()
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <a class="dropdown-item">Любимая номинация: {{ auth()->user()->like_nomination->name }}</a>
-                            <a class="dropdown-item">{{ auth()->user()->hardware }}</a>
-                            <a class="dropdown-item">{{ auth()->user()->username }}</a>
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ route('user.logout') }}">Выход</a>
                             @can('admin')
@@ -53,6 +49,16 @@
     </nav>
 @show
 @section('body')
+    @auth()
+        <ul class="list-group">
+            <li class="list-group-item">Любимая номинация: {{ auth()->user()->like_nomination->name }}</li>
+            <li class="list-group-item">CPU: {{ auth()->user()->hardware->CPU }}</li>
+            <li class="list-group-item">GPU: {{ auth()->user()->hardware->GPU }}</li>
+            <li class="list-group-item">RAM: {{ auth()->user()->hardware->RAM }}</li>
+            <li class="list-group-item">storage: {{ auth()->user()->hardware->storage }}</li>
+            <li class="list-group-item">PSU: {{ auth()->user()->hardware->PSU }}</li>
+        </ul>
+    @endauth
 @show
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
