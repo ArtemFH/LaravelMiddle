@@ -55,7 +55,7 @@
             <li class="list-group-item">CPU: {{ auth()->user()->hardware->CPU }}</li>
             <li class="list-group-item">GPU: {{ auth()->user()->hardware->GPU }}</li>
             <li class="list-group-item">RAM: {{ auth()->user()->hardware->RAM }}</li>
-            <li class="list-group-item">storage: {{ auth()->user()->hardware->storage }}</li>
+            <li class="list-group-item">Storage: {{ auth()->user()->hardware->storage }}</li>
             <li class="list-group-item">PSU: {{ auth()->user()->hardware->PSU }}</li>
         </ul>
     @endauth
