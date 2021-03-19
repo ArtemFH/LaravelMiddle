@@ -11,6 +11,8 @@ class Hardware extends Model
 
     protected $table = 'hardwares';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'CPU',
         'GPU',
