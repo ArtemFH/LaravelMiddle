@@ -67,7 +67,7 @@ class UserController extends Controller
             'title' => 'Profile'
         );
 
-        return view('profile')->with($data);
+        return view('user.profile')->with($data);
     }
 
     public function registrationAvailability()
@@ -79,7 +79,7 @@ class UserController extends Controller
         if (Auth::check()) {
             return redirect(route('user.profile'));
         }
-        return view('registration')->with($data);
+        return view('user.registration')->with($data);
     }
 
     public function loginAvailability()
@@ -91,6 +91,6 @@ class UserController extends Controller
         if (Auth::check()) {
             return redirect(route('user.profile'));
         }
-        return view('login')->with($data);
+        return view('user.login')->with($data);
     }
 }

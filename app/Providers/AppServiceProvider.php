@@ -28,9 +28,5 @@ class AppServiceProvider extends ServiceProvider
         Gate::before(function ($user, $role) {
             return $user->role->name === $role;
         });
-
-        Gate::before(function ($user, $like_nomination) {
-            return $user->like_nomination->name === $like_nomination;
-        });
     }
 }

@@ -13,6 +13,5 @@ class RequestController extends Controller
             'title' => 'Home page'
         );
         return view('layouts.base')->with($data);
-
     }
 }

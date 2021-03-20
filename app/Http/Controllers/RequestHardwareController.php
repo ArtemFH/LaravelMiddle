@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hardware;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,14 +18,14 @@ class RequestHardwareController extends Controller
             'RAM' => 'required',
             'PSU' => 'required',
             'storage' => 'required',
-            'motherboard' => 'required'
+            'motherboard' => 'required',
         ]);
 
         Hardware::create($validateFields);
 
-        return redirect(route('user.requestHardware'))->withErrors([
-            'formError' => 'Error'
-        ]);
+        User::updated();
+
+        return redirect(route('home'));
     }
 
     public function requestHardwareAvailability()

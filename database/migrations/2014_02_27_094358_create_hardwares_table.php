@@ -21,6 +21,7 @@ class CreateHardwaresTable extends Migration
             $table->string('PSU');
             $table->string('storage');
             $table->string('motherboard');
+            $table->boolean('approved')->default(0)->nullable();
         });
     }
 

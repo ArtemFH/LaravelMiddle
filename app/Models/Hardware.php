@@ -20,6 +20,7 @@ class Hardware extends Model
         'PSU',
         'storage',
         'motherboard',
+        'approved',
     ];
 
     public function user()
