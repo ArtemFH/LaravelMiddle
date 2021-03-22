@@ -12,7 +12,7 @@ class Benchmark extends Model
     protected $table = 'benchmarks';
 
     protected $fillable = [
-        'place',
+        'user_id',
     ];
 
     public function user()

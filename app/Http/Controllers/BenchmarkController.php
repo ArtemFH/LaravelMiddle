@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Benchmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +14,7 @@ class BenchmarkController extends Controller
         $data = array(
             'title' => 'Home'
         );
-        $benchmarkCpus = DB::table('benchmarks')->orderBy('score', 'DESC')->get();
+        $benchmarkCpus = Benchmark::query()->orderBy('score', 'DESC')->get();
         return view('home', compact('benchmarkCpus'))->with($data);
     }
 

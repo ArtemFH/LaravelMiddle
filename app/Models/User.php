@@ -40,6 +40,6 @@ class User extends Authenticatable
 
     public function hardware()
     {
-        return $this->belongsTo(Hardware::class);
+        return $this->belongsTo(Hardware::class, 'username');
     }
 }

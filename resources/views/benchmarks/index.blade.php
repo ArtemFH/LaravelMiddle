@@ -5,8 +5,9 @@
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Place: {{ $loop->iteration }}</h5>
                 </div>
-                <p class="mb-1">{{ $benchmarkCpu->user }}</p>
-                {{--                <small class="text-muted">{{ $user->users->username }}</small>--}}
+                {{ dd($benchmarkCpu) }}
+                <p class="mb-1">{{ $benchmarkCpu->score }}</p>
+                <small class="text-muted">{{ $benchmarkCpu->user->username }}</small>
             </a>
         @endforeach
     </div>
