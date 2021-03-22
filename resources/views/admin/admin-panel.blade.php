@@ -1,3 +1,2 @@
 @extends('layouts.base')
-@section('body')
-@show
+@extends('admin.users.index')

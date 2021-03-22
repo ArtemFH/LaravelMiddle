@@ -56,7 +56,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect(route('home'));
+        return redirect(route('home.head'));
     }
 
     public function profileView(Request $request)

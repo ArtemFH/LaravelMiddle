@@ -12,11 +12,17 @@ class AdminController extends Controller
     public function __construct()
     {
 //        $this->middleware('can:admin');
+//        $this->middleware('can:user');
+//        $this->middleware('can:moderator');
     }
 
     public function index()
     {
-        $users = DB::table('users')->where('role_id', '!=', '3')->get();
-        return view('admin.users.index', compact('users'));
+        $data = array(
+            'title' => 'Admin Panel'
+        );
+
+        $users = DB::table('users')->get();
+        return view('admin.admin-panel', compact('users'))->with($data);
     }
 }

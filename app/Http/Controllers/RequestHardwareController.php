@@ -25,7 +25,7 @@ class RequestHardwareController extends Controller
 
         User::updated();
 
-        return redirect(route('home'));
+        return redirect(route('home.head'));
     }
 
     public function requestHardwareAvailability()

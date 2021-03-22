@@ -9,10 +9,14 @@ class Benchmark extends Model
 {
     use HasFactory;
 
+    protected $table = 'benchmarks';
+
     protected $fillable = [
         'place',
-        'image',
-        'user_id',
-        'nomination_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

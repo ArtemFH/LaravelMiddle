@@ -22,9 +22,4 @@ class Hardware extends Model
         'motherboard',
         'approved',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'name');
-    }
 }

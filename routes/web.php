@@ -13,9 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', ['title' => 'Home']);
-})->name('home');
+Route::name('home.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\BenchmarkController::class, 'index'])->name('head');
+});
+
+Route::name('admin.')->group(function () {
+    Route::get('/admin-panel', [\App\Http\Controllers\AdminController::class, 'index', '__construct'])->name('panel');
+});
+
+Route::name('moderator.')->group(function () {
+    Route::get('/moderator-panel', [])->name('panel');
+});
 
 Route::name('user.')->group(function () {
     Route::get('/registration', [\App\Http\Controllers\UserController::class, 'registrationAvailability'])->name('registration');
@@ -33,12 +41,4 @@ Route::name('user.')->group(function () {
     Route::post('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardware']);
 
     Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
-});
-
-Route::name('admin.')->group(function () {
-    Route::get('/admin-panel', [\App\Http\Controllers\AdminController::class, 'index'])->name('panel');
-});
-
-Route::name('moderator.')->group(function () {
-    Route::get('/moderator-panel', [])->name('panel');
 });
