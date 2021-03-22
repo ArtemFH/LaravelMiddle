@@ -28,7 +28,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('user.profile') }}">Профиль</a>
+                            @if($title == 'Home')
+                                <a class="dropdown-item" href="{{ route('user.profile') }}">Профиль</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('user.logout') }}">Выход</a>
                             @can('admin')
                                 <a class="dropdown-item" href="{{ route('admin.panel') }}">Admin</a>

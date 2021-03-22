@@ -17,6 +17,8 @@
                 <li class="list-group-item">Storage: {{ auth()->user()->hardware->storage }}</li>
                 <li class="list-group-item">Motherboard: {{ auth()->user()->hardware->motherboard }}</li>
             </ul>
+        @else
+            <button class="m-3 btn btn-success">Подать заявку</button>
         @endif
     @endauth
 @endsection
