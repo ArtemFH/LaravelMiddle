@@ -19,4 +19,9 @@ class Benchmark extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function nomination()
+    {
+        return $this->belongsTo(Nomination::class);
+    }
 }

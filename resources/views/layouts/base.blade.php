@@ -25,18 +25,17 @@
                     <a class="nav-link" href="{{ route('home.head') }}">Home</a>
                 </li>
                 @auth()
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->username }}</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            @if($title == 'Home')
-                                <a class="dropdown-item" href="{{ route('user.profile') }}">Профиль</a>
-                            @endif
-                            <a class="dropdown-item" href="{{ route('user.logout') }}">Выход</a>
-                            @can('admin')
-                                <a class="dropdown-item" href="{{ route('admin.panel') }}">Admin</a>
-                            @endcan
-                        </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('user.logout') }}">Выход</a>
+                    </li>
+                    @can('admin')
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('admin.panel') }}">Admin</a>
+                        </li>
+                    @endcan
                 @endauth
                 @guest()
                     <a class="nav-link" href="{{ route('user.login') }}">Авторизация</a>
@@ -46,8 +45,10 @@
         </div>
     </nav>
 @show
-@section('body')
-@show
+<div class="mt-4">
+    @section('body')
+    @show
+</div>
 @section('scripts')
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

@@ -4,7 +4,7 @@
     <title>{{ $title }}</title>
 @endsection
 @section('body')
-    <form class="col-3 offset-4 border rounded" method="POST" action="{{ route('user.login') }}">
+    <form class="col-4" method="POST" action="{{ route('user.login') }}">
         @csrf
         <div class="form-group">
             <label for="email" class="col-form-label-lg">Email</label>
@@ -20,8 +20,8 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group">
-            <button class="btn btn-lg btn-primary" type="submit" name="send" value="1">Login</button>
+        <div class="form-group center">
+            <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Login</button>
         </div>
     </form>
 @endsection

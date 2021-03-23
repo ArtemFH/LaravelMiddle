@@ -15,7 +15,6 @@ class CreateBenchmarksTable extends Migration
     {
         Schema::create('benchmarks', function (Blueprint $table) {
             $table->id();
-            $table->string('place');
             $table->string('image');
             $table->integer('score');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');

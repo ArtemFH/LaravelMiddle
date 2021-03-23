@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('head')
     @parent
-    <title>{{ $title }}</title>
+    <title>{{ $title }}: {{auth()->user()->username}}</title>
 @endsection
 @section('body')
     @auth
