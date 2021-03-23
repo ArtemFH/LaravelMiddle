@@ -29,7 +29,7 @@
                         <a class="nav-link" href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('user.logout') }}">Выход</a>
+                        <a class="nav-link" href="{{ route('user.logout') }}">Sign out</a>
                     </li>
                     @can('admin')
                         <li class="nav-item active">
@@ -38,8 +38,8 @@
                     @endcan
                 @endauth
                 @guest()
-                    <a class="nav-link" href="{{ route('user.login') }}">Авторизация</a>
-                    <a class="nav-link" href="{{ route('user.registration') }}">Регистрация</a>
+                    <a class="nav-link" href="{{ route('user.login') }}">Sign in</a>
+                    <a class="nav-link" href="{{ route('user.registration') }}">Sign up</a>
                 @endguest
             </ul>
         </div>

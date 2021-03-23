@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ECDCC4 !important;
-    color: #342E37 !important;
+    font-weight: 400 !important;
 }
 
 nav {
@@ -53,6 +53,10 @@ input {
 
 .navbar-nav {
     margin-left: 20px;
+}
+
+sm {
+    color: #86213D !important;
 }
 
 .btn {
