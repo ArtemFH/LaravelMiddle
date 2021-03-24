@@ -4,11 +4,12 @@
     <title>{{ $title }}</title>
 @endsection
 @section('body')
-    <form class="col-4" method="POST" action="{{ route('user.requestHardware') }}">
+    <form class="col-3" method="POST" action="{{ route('user.requestHardware') }}">
         @csrf
         <div class="form-group">
             <label for="CPU" class="col-form-label-lg">CPU</label>
             <input id="CPU" class="form-control" name="CPU" autocomplete="off" type="text" value="" placeholder="CPU">
+
         </div>
         <div class="form-group">
             <label for="GPU" class="col-form-label-lg">GPU</label>
