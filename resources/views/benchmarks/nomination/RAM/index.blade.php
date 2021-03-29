@@ -1,8 +1,8 @@
 @section('RAM')
     @if($nomination == 'RAM')
-        <div class="container">
+        <div class="container col-6">
             <div class="row pb-4">
-                <div class="col-6">
+                <div class="col">
                     <div class="list-group mt-3">
                         <a href="#" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
                             <p class="mb-1">Nomination: RAM</p>
