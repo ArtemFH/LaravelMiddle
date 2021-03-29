@@ -21,6 +21,14 @@ Route::name('admin.')->group(function () {
     Route::get('/admin-panel', [\App\Http\Controllers\AdminController::class, 'index', '__construct'])->name('panel');
 });
 
+Route::name('results.')->group(function () {
+    Route::get('/CPU', [\App\Http\Controllers\BenchmarkController::class, 'indexCpu'])->name('CPU');
+
+    Route::get('/GPU', [\App\Http\Controllers\BenchmarkController::class, 'indexGpu'])->name('GPU');
+
+    Route::get('/RAM', [\App\Http\Controllers\BenchmarkController::class, 'indexRam'])->name('RAM');
+});
+
 Route::name('moderator.')->group(function () {
     Route::get('/moderator-panel', [])->name('panel');
 });

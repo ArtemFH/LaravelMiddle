@@ -1,9 +1,9 @@
 @section('body')
     <div class="container">
-        <div class="row">
+        <div class="row pb-4">
             <div class="col">
                 <div class="list-group mt-3">
-                    <a href="#" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('results.CPU') }}" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
                         <p class="mb-1">Nomination: CPU</p>
                     </a>
                     @foreach($benchmarkCPUs as $indexCPU)
@@ -23,7 +23,7 @@
             </div>
             <div class="col">
                 <div class="list-group mt-3">
-                    <a href="#" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('results.GPU') }}" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
                         <p class="mb-1">Nomination: GPU</p>
                     </a>
                     @foreach($benchmarkGPUs as $indexGPU)
@@ -43,7 +43,7 @@
             </div>
             <div class="col">
                 <div class="list-group mt-3">
-                    <a href="#" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{ route('results.RAM') }}" class="headNomination list-group-item list-group-item-action flex-column align-items-start">
                         <p class="mb-1">Nomination: RAM</p>
                     </a>
                     @foreach($benchmarkRAMs as $indexRAM)
