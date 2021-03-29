@@ -12,12 +12,13 @@ class BenchmarkController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Home'
+            'title' => 'Homе
+            '
         );
 
-        $benchmarkCPUs = Benchmark::query()->where('nomination_id', '10')->orderBy('score', 'DESC')->limit(10)->get();
-        $benchmarkGPUs = Benchmark::query()->where('nomination_id', '20')->orderBy('score', 'DESC')->limit(10)->get();
-        $benchmarkRAMs = Benchmark::query()->where('nomination_id', '30')->orderBy('score', 'DESC')->limit(10)->get();
+        $benchmarkCPUs = Benchmark::query()->where('nomination_id', '10')->orderBy('score', 'DESC')->limit(7)->get();
+        $benchmarkGPUs = Benchmark::query()->where('nomination_id', '20')->orderBy('score', 'DESC')->limit(7)->get();
+        $benchmarkRAMs = Benchmark::query()->where('nomination_id', '30')->orderBy('score', 'DESC')->limit(7)->get();
 
         return view('home', compact('benchmarkCPUs', 'benchmarkGPUs', 'benchmarkRAMs'))->with($data);
     }

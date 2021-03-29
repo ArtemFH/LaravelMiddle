@@ -13,7 +13,7 @@
 </head>
 <body id="bootstrap-overrides">
 @section('nav')
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <img class="logoImg" src={{url("/images/logo.gif")}}>
         <h7>Silicon Power</h7>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
         </div>
     </nav>
 @show
-<div class="mt-4">
+<div class="mt">
     @section('body')
     @show
     @section('CPU')
