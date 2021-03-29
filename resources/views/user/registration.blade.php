@@ -4,7 +4,7 @@
     <title>{{ $title }}</title>
 @endsection
 @section('body')
-    <form class="col-4" method="POST" action="{{ route('user.registration') }}">
+    <form class="col-3" method="POST" action="{{ route('user.registration') }}">
         @csrf
         <div class="form-group">
             <label for="username" class="col-form-label-lg">Username</label>

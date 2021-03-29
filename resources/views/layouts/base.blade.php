@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link href="{{ asset('css/app.css') }}" media="all" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
+        crossorigin="anonymous">
+        <link href="{{ asset('css/app.css') }}" media="all" rel="stylesheet" type="text/css"/>
     @show
 </head>
-<body>
+<body id="bootstrap-overrides">
 @section('nav')
     <nav class="navbar navbar-expand-lg navbar-light">
         <img class="logoImg" src={{url("/images/logo.gif")}}>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="{{ route('user.profile') }}">{{ auth()->user()->username }}</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('user.logout') }}">Выход</a>
+                        <a class="nav-link" href="{{ route('user.logout') }}">Sign out</a>
                     </li>
                     @can('admin')
                         <li class="nav-item active">
@@ -38,8 +38,8 @@
                     @endcan
                 @endauth
                 @guest()
-                    <a class="nav-link" href="{{ route('user.login') }}">Авторизация</a>
-                    <a class="nav-link" href="{{ route('user.registration') }}">Регистрация</a>
+                    <a class="nav-link" href="{{ route('user.login') }}">Sign in</a>
+                    <a class="nav-link" href="{{ route('user.registration') }}">Sign up</a>
                 @endguest
             </ul>
         </div>
