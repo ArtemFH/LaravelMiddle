@@ -20,6 +20,7 @@ class Hardware extends Model
         'PSU',
         'storage',
         'motherboard',
+        'author_id',
         'approved',
     ];
 }

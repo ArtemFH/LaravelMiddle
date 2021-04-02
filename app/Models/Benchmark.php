@@ -13,6 +13,7 @@ class Benchmark extends Model
 
     protected $fillable = [
         'user_id',
+        'score'
     ];
 
     public function user()

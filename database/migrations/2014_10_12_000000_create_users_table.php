@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password', 255)->nullable(false);
             $table->string('email', 255)->nullable(false)->unique('email');
             $table->string('avatar')->nullable();
-            $table->foreignId('hardware_id')->nullable()->unique('hardware_id')->constrained('hardwares')->onDelete('cascade');
             $table->foreignId('role_id')->nullable()->default('1')->constrained('roles')->onDelete('cascade');
             $table->foreignId('like_nomination_id')->nullable()->constrained('nominations')->onDelete('cascade');
             $table->foreignId('award_id')->nullable()->constrained('awards')->onDelete('cascade');

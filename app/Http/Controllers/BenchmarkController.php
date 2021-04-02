@@ -27,7 +27,8 @@ class BenchmarkController extends Controller
     {
         $data = array(
             'title' => 'CPU',
-            'nomination' => 'CPU'
+            'nomination' => 'CPU',
+            'urlRoute' => 'results.'
         );
 
         $benchmarkCPUs = Benchmark::query()->where('nomination_id', '10')->orderBy('score', 'DESC')->limit(100)->get();
@@ -39,7 +40,8 @@ class BenchmarkController extends Controller
     {
         $data = array(
             'title' => 'GPU',
-            'nomination' => 'GPU'
+            'nomination' => 'GPU',
+            'urlRoute' => 'results.GPU.'
         );
 
         $benchmarkGPUs = Benchmark::query()->where('nomination_id', '20')->orderBy('score', 'DESC')->limit(100)->get();
@@ -51,11 +53,48 @@ class BenchmarkController extends Controller
     {
         $data = array(
             'title' => 'RAM',
-            'nomination' => 'RAM'
+            'nomination' => 'RAM',
+            'urlRoute' => 'results.'
         );
 
         $benchmarkRAMs = Benchmark::query()->where('nomination_id', '30')->orderBy('score', 'DESC')->limit(100)->get();
 
         return view('benchmarks.nomination.results', compact('benchmarkRAMs'))->with($data);
+    }
+
+    public function indexResultCPU(Request $request, $indexResult)
+    {
+        $data = array(
+            'title' => $indexResult,
+            'indexResult' => $indexResult
+        );
+
+        $indexResultGet = Benchmark::find($indexResult);
+
+        return view('benchmarks.results.index', compact('indexResultGet'))->with($data);
+    }
+
+    public function indexResultGPU(Request $request, $indexResult)
+    {
+        $data = array(
+            'title' => $indexResult,
+            'indexResult' => $indexResult
+        );
+
+        $indexResultGet = Benchmark::find($indexResult);
+
+        return view('benchmarks.results.index', compact('indexResultGet'))->with($data);
+    }
+
+    public function indexResultRAM(Request $request, $indexResult)
+    {
+        $data = array(
+            'title' => $indexResult,
+            'indexResult' => $indexResult
+        );
+
+        $indexResultGet = Benchmark::find($indexResult);
+
+        return view('benchmarks.results.index', compact('indexResultGet'))->with($data);
     }
 }

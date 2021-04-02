@@ -18,7 +18,7 @@
                 <li class="list-group-item">Motherboard: {{ auth()->user()->hardware->motherboard }}</li>
             </ul>
         @else
-            <a class="nav-link" href="{{ route('user.logout') }}">
+            <a class="nav-link" href="{{ route('user.requestHardware') }}">
                 <button class="m-3 btn btn-success">Подать заявку</button>
             </a>
         @endif

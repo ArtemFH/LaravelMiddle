@@ -14,16 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $usershardware = [
-            [
-                'username' => 'Artem',
-                'password' => '$2y$12$sDMLTH4SPGUP88qTXV20zOVJbVVPvKy03jEs8FcJWe2QXYFIG2MA2',
-                'email' => 'artembereza2@mail.ru',
-                'role_id' => '1',
-                'like_nomination_id' => '30',
-                'hardware_id' => '2'
-            ]
-        ];
         $users = [
             [
                 'username' => 'Voice',
@@ -64,6 +54,5 @@ class UserSeeder extends Seeder
             ]
         ];
         DB::table('users')->insert($users);
-        DB::table('users')->insert($usershardware);
     }
 }
