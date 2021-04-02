@@ -11,6 +11,9 @@ class RequestHardwareController extends Controller
 {
     public function requestHardware(Request $request)
     {
+        if (Hardware::where('user_id', Auth::id())->first()) {
+            return redirect('user.profile');
+        }
 
         $validateFields = $request->validate([
             'CPU' => 'required',
@@ -18,12 +21,10 @@ class RequestHardwareController extends Controller
             'RAM' => 'required',
             'PSU' => 'required',
             'storage' => 'required',
-            'motherboard' => 'required',
+            'motherboard' => 'required'
         ]);
 
-        Hardware::create($validateFields);
-
-        User::updated();
+        Hardware::create($validateFields + ['user_id' => Auth::id()]);
 
         return redirect(route('home.head'));
     }
@@ -35,5 +36,12 @@ class RequestHardwareController extends Controller
         );
 
         return view('requires.requestHardware')->with($data);
+    }
+
+    public function deleteHardware(Request $request)
+    {
+        Hardware::where('user_id', Auth::id())->first()->delete();
+
+        return redirect(route('user.profile'));
     }
 }

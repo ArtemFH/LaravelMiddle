@@ -21,8 +21,8 @@ class CreateHardwaresTable extends Migration
             $table->string('PSU');
             $table->string('storage');
             $table->string('motherboard');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->boolean('approved')->default(0)->nullable();
+            $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
+            $table->boolean('approved')->default(0);
         });
     }
 

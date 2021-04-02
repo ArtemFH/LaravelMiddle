@@ -20,7 +20,12 @@ class Hardware extends Model
         'PSU',
         'storage',
         'motherboard',
-        'author_id',
+        'user_id',
         'approved',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

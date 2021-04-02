@@ -22,7 +22,7 @@ class HardwareSeeder extends Seeder
                 'PSU' => 'Super Flower Leadex II 1000W',
                 'storage' => 'Samsung 980 PRO 2TB',
                 'motherboard' => 'ASUS ROG Crosshair VIII HERO(Wi-Fi)',
-                'author_id' => '1'
+                'user_id' => '1',
             ],
             [
                 'CPU' => 'Ryzen 9 3950x',
@@ -31,7 +31,7 @@ class HardwareSeeder extends Seeder
                 'PSU' => 'Super Flower Leadex II 850W',
                 'storage' => 'Samsung 980 EVO Plus 1TB',
                 'motherboard' => 'ASUS ROG Crosshair VI EXTREME',
-                'author_id' => '3'
+                'user_id' => '2'
             ]
         ];
         DB::table('hardwares')->insert($hardware);

@@ -5,18 +5,30 @@
 @endsection
 @section('body')
     @auth
-        @if(auth()->user()->hardware_id == !null)
+        {{ dd($check) }}
+        @if($hardware == !null)
             <ul class="p-3 w-50 list-group">
-                <li class="list-group-item">Любимая номинация: {{ auth()->user()->like_nomination->name }}</li>
+                <li class="list-group-item">Любимая номинация: {{ $hardware->user->like_nomination->name }}</li>
             </ul>
             <ul class="p-3 w-50 list-group">
-                <li class="list-group-item">CPU: {{ auth()->user()->hardware->CPU }}</li>
-                <li class="list-group-item">GPU: {{ auth()->user()->hardware->GPU }}</li>
-                <li class="list-group-item">RAM: {{ auth()->user()->hardware->RAM }}</li>
-                <li class="list-group-item">PSU: {{ auth()->user()->hardware->PSU }}</li>
-                <li class="list-group-item">Storage: {{ auth()->user()->hardware->storage }}</li>
-                <li class="list-group-item">Motherboard: {{ auth()->user()->hardware->motherboard }}</li>
+                <li class="list-group-item">CPU: {{ $hardware->CPU }}</li>
+                <li class="list-group-item">GPU: {{ $hardware->GPU }}</li>
+                <li class="list-group-item">RAM: {{ $hardware->RAM }}</li>
+                <li class="list-group-item">PSU: {{ $hardware->PSU }}</li>
+                <li class="list-group-item">Storage: {{ $hardware->storage }}</li>
+                <li class="list-group-item">Motherboard: {{ $hardware->motherboard }}</li>
+                @if($hardware->approved == 0)
+                    <li class="list-group-item">Статус: В рассмотрений</li>
+                @else
+                    <li class="list-group-item active">Статус: Подтверждено</li>
+                @endif
             </ul>
+            <a class="nav-link" href="{{ route('user.requestHardware') }}">
+                <button class="m-3 btn btn-success">Отредактировать комплектующие</button>
+            </a>
+            <a class="nav-link" href="{{ route('user.deleteHardware') }}">
+                <button class="m-3 btn btn-danger">Удалить комплектующие</button>
+            </a>
         @else
             <a class="nav-link" href="{{ route('user.requestHardware') }}">
                 <button class="m-3 btn btn-success">Подать заявку</button>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hardware;
 use App\Models\User;
+use Hamcrest\Arrays\IsArrayWithSize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,7 +69,12 @@ class UserController extends Controller
             'title' => 'Profile'
         );
 
-        return view('user.profile')->with($data);
+        $check = Hardware::where('user_id', Auth::id())->first()->getAttributes();
+
+
+        $hardware = Hardware::where('user_id', Auth::id())->first();
+
+        return view('user.profile', compact('hardware', 'check'))->with($data);
     }
 
     public function registrationAvailability()

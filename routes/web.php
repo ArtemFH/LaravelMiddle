@@ -42,17 +42,24 @@ Route::name('moderator.')->group(function () {
 Route::name('user.')->group(function () {
     Route::get('/registration', [\App\Http\Controllers\UserController::class, 'registrationAvailability'])->name('registration');
 
-    Route::get('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardwareAvailability'])->name('requestHardware');
+    Route::post('/registration', [\App\Http\Controllers\UserController::class, 'createUser']);
 
     Route::get('/login', [\App\Http\Controllers\UserController::class, 'loginAvailability'])->name('login');
 
-    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
     Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profileView'])->middleware('auth')->name('profile');
 
-    Route::post('/registration', [\App\Http\Controllers\UserController::class, 'createUser']);
+    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+
 
     Route::post('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardware']);
 
-    Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
+    Route::get('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardwareAvailability'])->name('requestHardware');
+
+    Route::post('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardware']);
+
+    Route::get('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardwareAvailability'])->name('updateHardware');
+
+    Route::get('/deleteHardware', [\App\Http\Controllers\RequestHardwareController::class, 'deleteHardware'])->name('deleteHardware');
 });
