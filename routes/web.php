@@ -53,13 +53,17 @@ Route::name('user.')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
 
+    Route::post('/requestBenchmark', [\App\Http\Controllers\RequestHardwareController::class, 'requestBenchmark']);
+
+    Route::get('/requestBenchmark', [\App\Http\Controllers\RequestHardwareController::class, 'requestBenchmarkAvailability'])->name('requestBenchmark');
+
     Route::post('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardware']);
 
     Route::get('/requestHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardwareAvailability'])->name('requestHardware');
 
-    Route::post('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardware']);
+    Route::post('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'updateHardware']);
 
-    Route::get('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'requestHardwareAvailability'])->name('updateHardware');
+    Route::get('/updateHardware', [\App\Http\Controllers\RequestHardwareController::class, 'updateHardwareAvailability'])->name('updateHardware');
 
     Route::get('/deleteHardware', [\App\Http\Controllers\RequestHardwareController::class, 'deleteHardware'])->name('deleteHardware');
 });

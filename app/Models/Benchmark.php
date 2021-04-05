@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
 
 class Benchmark extends Model
 {
@@ -13,7 +14,9 @@ class Benchmark extends Model
 
     protected $fillable = [
         'user_id',
-        'score'
+        'score',
+        'image',
+        'nomination_id'
     ];
 
     public function user()
@@ -24,5 +27,10 @@ class Benchmark extends Model
     public function nomination()
     {
         return $this->belongsTo(Nomination::class);
+    }
+
+    public function getImageAttribute()
+    {
+        return URL::to('/') . '/storage/' . $this->attributes['image'];
     }
 }

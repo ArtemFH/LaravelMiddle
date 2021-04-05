@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Benchmark;
 use App\Models\Hardware;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RequestHardwareController extends Controller
 {
@@ -43,5 +45,28 @@ class RequestHardwareController extends Controller
         Hardware::where('user_id', Auth::id())->first()->delete();
 
         return redirect(route('user.profile'));
+    }
+
+    public function requestBenchmarkAvailability()
+    {
+        $data = array(
+            'title' => 'Hardware'
+        );
+
+        return view('requires.requestBenchmark')->with($data);
+    }
+
+    public function requestBenchmark(Request $request)
+    {
+        $request->validate([
+            'score' => 'required',
+            'image' => 'required|file'
+        ]);
+
+        $filename = Storage::disk('public')->put('benchmarks', $request->image);
+
+        Benchmark::create($request->only('score') + ['image' => $filename, 'user_id' => Auth::id(), 'nomination_id' => 10]);
+
+        return redirect(route('home.head'));
     }
 }
