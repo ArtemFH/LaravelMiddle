@@ -5,11 +5,11 @@
 @endsection
 @section('body')
     @auth
-{{--        {{ dd($check) }}--}}
+        {{--        {{ dd($check) }}--}}
         @if($hardware == !null)
-{{--            <ul class="p-3 w-50 list-group">--}}
-{{--                <li class="list-group-item">Любимая номинация: {{ $hardware->user->like_nomination->name }}</li>--}}
-{{--            </ul>--}}
+            {{--            <ul class="p-3 w-50 list-group">--}}
+            {{--                <li class="list-group-item">Любимая номинация: {{ $hardware->user->like_nomination->name }}</li>--}}
+            {{--            </ul>--}}
             <ul class="p-3 w-50 list-group">
                 <li class="list-group-item">CPU: {{ $hardware->CPU }}</li>
                 <li class="list-group-item">GPU: {{ $hardware->GPU }}</li>
@@ -23,7 +23,7 @@
                     <li class="list-group-item active">Статус: Подтверждено</li>
                 @endif
             </ul>
-            <a class="nav-link" href="{{ route('user.requestHardware') }}">
+            <a class="nav-link" href="{{ route('user.updateHardware') }}">
                 <button class="m-3 btn btn-success">Отредактировать комплектующие</button>
             </a>
             <a class="nav-link" href="{{ route('user.deleteHardware') }}">

@@ -28,7 +28,7 @@ class RequestHardwareController extends Controller
 
         Hardware::create($validateFields + ['user_id' => Auth::id()]);
 
-        return redirect(route('home.head'));
+        return redirect(route('user.profile'));
     }
 
     public function requestHardwareAvailability()
@@ -70,5 +70,40 @@ class RequestHardwareController extends Controller
         Benchmark::create($request->only('score', 'nomination_id') + ['image' => $filename, 'user_id' => Auth::id()]);
 
         return redirect(route('home.head'));
+    }
+
+    public function updateHardwareAvailability(Request $request)
+    {
+        $data = array(
+            'title' => 'Update Hardware'
+        );
+
+        $hardware = Hardware::where('user_id', Auth::id())->first();
+
+        return view('requires.updateHardware', compact('hardware'))->with($data);
+    }
+
+    public function updateHardware(Request $request)
+    {
+        $validateFields = $request->validate([
+            'CPU' => 'required',
+            'GPU' => 'required',
+            'RAM' => 'required',
+            'PSU' => 'required',
+            'storage' => 'required',
+            'motherboard' => 'required'
+        ]);
+
+        $hardware = Hardware::where('user_id', Auth::id())->first();
+
+        $hardware->CPU = $request->CPU;
+        $hardware->GPU = $request->GPU;
+        $hardware->RAM = $request->RAM;
+        $hardware->PSU = $request->PSU;
+        $hardware->storage = $request->storage;
+        $hardware->motherboard = $request->motherboard;
+        $hardware->save();
+
+        return redirect(route('user.profile'));
     }
 }

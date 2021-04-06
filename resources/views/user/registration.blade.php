@@ -28,7 +28,7 @@
             @enderror
         </div>
         <div class="form-group center">
-            <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Login</button>
+            <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Registration</button>
         </div>
     </form>
 @endsection
