@@ -68,6 +68,10 @@ sm {
     border-color: #8E1533;
 }
 
+.list-group-item:first-child {
+    text-decoration: revert;
+}
+
 /*#342E27*/
 /*#DEA81C*/
 /*#ECDCC4*/

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
+use Carbon\Carbon;
 
 class Benchmark extends Model
 {
@@ -32,5 +33,10 @@ class Benchmark extends Model
     public function getImageAttribute()
     {
         return URL::to('/') . '/storage/' . $this->attributes['image'];
+    }
+
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y-m-d');
     }
 }

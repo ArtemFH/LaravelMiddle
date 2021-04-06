@@ -24,15 +24,11 @@ Route::name('admin.')->group(function () {
 Route::name('results.')->group(function () {
     Route::get('/CPU', [\App\Http\Controllers\BenchmarkController::class, 'indexCpu'])->name('CPU');
 
-    Route::get('/CPU/{indexResult}', [\App\Http\Controllers\BenchmarkController::class, 'indexResultCPU']);
-
     Route::get('/GPU', [\App\Http\Controllers\BenchmarkController::class, 'indexGpu'])->name('GPU');
-
-    Route::get('/GPU/{indexResult}', [\App\Http\Controllers\BenchmarkController::class, 'indexResultGPU']);
 
     Route::get('/RAM', [\App\Http\Controllers\BenchmarkController::class, 'indexRam'])->name('RAM');
 
-    Route::get('/RAM/{indexResult}', [\App\Http\Controllers\BenchmarkController::class, 'indexResultRAM']);
+    Route::get('/benchmarks/{indexResult}', [\App\Http\Controllers\BenchmarkController::class, 'indexResult']);
 });
 
 Route::name('moderator.')->group(function () {

@@ -20,6 +20,14 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="nomination_id">
+                <option value="10" selected>CPU</option>
+                <option value="20">GPU</option>
+                <option value="30">RAM</option>
+            </select>
+        </div>
         <div class="form-group center">
             <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Send Result</button>
         </div>

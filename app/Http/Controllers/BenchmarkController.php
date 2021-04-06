@@ -62,31 +62,7 @@ class BenchmarkController extends Controller
         return view('benchmarks.nomination.results', compact('benchmarkRAMs'))->with($data);
     }
 
-    public function indexResultCPU(Request $request, $indexResult)
-    {
-        $data = array(
-            'title' => $indexResult,
-            'indexResult' => $indexResult
-        );
-
-        $indexResultGet = Benchmark::find($indexResult);
-
-        return view('benchmarks.results.index', compact('indexResultGet'))->with($data);
-    }
-
-    public function indexResultGPU(Request $request, $indexResult)
-    {
-        $data = array(
-            'title' => $indexResult,
-            'indexResult' => $indexResult
-        );
-
-        $indexResultGet = Benchmark::find($indexResult);
-
-        return view('benchmarks.results.index', compact('indexResultGet'))->with($data);
-    }
-
-    public function indexResultRAM(Request $request, $indexResult)
+    public function indexResult(Request $request, $indexResult)
     {
         $data = array(
             'title' => $indexResult,

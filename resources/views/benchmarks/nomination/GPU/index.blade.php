@@ -8,7 +8,7 @@
                             <p class="mb-1">Nomination: GPU</p>
                         </a>
                         @foreach($benchmarkGPUs as $indexGPU)
-                            <a href="{{ url('GPU/'.$indexGPU->id) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="{{ url('benchmarks/'.$indexGPU->id) }}" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">Place: {{ $loop->iteration }}</h5>
                                 </div>

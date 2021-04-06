@@ -60,12 +60,14 @@ class RequestHardwareController extends Controller
     {
         $request->validate([
             'score' => 'required',
-            'image' => 'required|file'
+            'image' => 'required|file',
+            'nomination_id' => 'required'
         ]);
+
 
         $filename = Storage::disk('public')->put('benchmarks', $request->image);
 
-        Benchmark::create($request->only('score') + ['image' => $filename, 'user_id' => Auth::id(), 'nomination_id' => 10]);
+        Benchmark::create($request->only('score', 'nomination_id') + ['image' => $filename, 'user_id' => Auth::id()]);
 
         return redirect(route('home.head'));
     }
