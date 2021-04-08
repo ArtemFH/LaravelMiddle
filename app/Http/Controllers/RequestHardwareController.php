@@ -85,7 +85,7 @@ class RequestHardwareController extends Controller
 
     public function updateHardware(Request $request)
     {
-        $validateFields = $request->validate([
+        $request->validate([
             'CPU' => 'required',
             'GPU' => 'required',
             'RAM' => 'required',
@@ -102,6 +102,7 @@ class RequestHardwareController extends Controller
         $hardware->PSU = $request->PSU;
         $hardware->storage = $request->storage;
         $hardware->motherboard = $request->motherboard;
+        $hardware->approved = 0;
         $hardware->save();
 
         return redirect(route('user.profile'));

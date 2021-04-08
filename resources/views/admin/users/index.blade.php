@@ -5,7 +5,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $user->username }}</li>
                     <li class="list-group-item">{{ $user->email }}</li>
-                    {{--                    <li class="list-group-item">{{ $user->role->name }}</li>--}}
+                    {{--                    {{ dd($user) }}--}}
+                    <li class="list-group-item">{{ $user->role->name }}</li>
                 </ul>
             </div>
             {{--            @if($user->role->name == 'user')--}}

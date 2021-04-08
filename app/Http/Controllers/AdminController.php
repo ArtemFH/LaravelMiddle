@@ -22,7 +22,12 @@ class AdminController extends Controller
             'title' => 'Admin Panel'
         );
 
-        $users = DB::table('users')->get();
+        $users = User::where('role_id', 1)->orWhere('role_id', 2)->get();
         return view('admin.admin-panel', compact('users'))->with($data);
+    }
+
+    public function setModerator($index)
+    {
+
     }
 }
