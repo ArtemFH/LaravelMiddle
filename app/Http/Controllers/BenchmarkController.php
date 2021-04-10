@@ -12,8 +12,7 @@ class BenchmarkController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Homе
-            '
+            'title' => 'Homе'
         );
 
         $benchmarkCPUs = Benchmark::query()->where('nomination_id', '10')->orderBy('score', 'DESC')->limit(7)->get();
