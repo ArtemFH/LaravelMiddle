@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <p class="mb-1">Score: {{ $indexResultGet->score }}</p>
                         <p class="card-text">Create result: {{ $indexResultGet->created_at }}</p>
-                        <a href="#" class="btn btn-primary">{{ $indexResultGet->user->username }}</a>
+                        <a href="/user/{{$indexResultGet->user->username}}" class="btn btn-primary">{{ $indexResultGet->user->username }}</a>
                     </div>
                 </div>
                 <div class="col-8 card-image">

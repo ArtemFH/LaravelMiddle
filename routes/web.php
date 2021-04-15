@@ -44,9 +44,11 @@ Route::name('user.')->group(function () {
 
     Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
+    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+
     Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profileView'])->middleware('auth')->name('profile');
 
-    Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+    Route::get('/user/{indexUser}', [\App\Http\Controllers\UserController::class, 'profileUser'])->middleware('auth')->name('profileView');
 
 
     Route::post('/requestBenchmark', [\App\Http\Controllers\RequestHardwareController::class, 'requestBenchmark']);

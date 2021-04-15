@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Benchmark;
 use App\Models\Hardware;
 use App\Models\User;
 use Hamcrest\Arrays\IsArrayWithSize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Couchbase\basicEncoderV1;
 
 class UserController extends Controller
 {
@@ -69,12 +71,31 @@ class UserController extends Controller
             'title' => 'Profile'
         );
 
-        $check = Hardware::where('user_id', Auth::id())->first();
-
+        $check = Hardware::where('user_id', Auth::id())->first()->getAttributes();
 
         $hardware = Hardware::where('user_id', Auth::id())->first();
 
         return view('user.profile', compact('hardware', 'check'))->with($data);
+    }
+
+
+    public function profileUser(Request $request, $indexUser)
+    {
+        $indexUserGet = User::where('username', $indexUser)->first();
+
+        if ($indexUserGet) {
+
+            $results = Benchmark::query()->where('user_id', $indexUserGet->id)->orderBy('score', 'DESC')->get();
+
+            $hardware = Hardware::where('user_id', $indexUserGet->id)->first();
+
+            $data = array(
+                'title' => $indexUserGet->username
+            );
+            return view('user.profileView', compact('indexUserGet', 'hardware', 'results'))->with($data);
+        }
+
+        return view('errors.404');
     }
 
     public function registrationAvailability()
