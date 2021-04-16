@@ -23,15 +23,18 @@
                     <li class="list-group-item active">Статус: Подтверждено</li>
                 @endif
             </ul>
+            <a class="nav-link" href="{{ route('user.requestBenchmark') }}">
+                <button class="m-3 btn btn-success">Submit benchmark result</button>
+            </a>
             <a class="nav-link" href="{{ route('user.updateHardware') }}">
-                <button class="m-3 btn btn-success">Отредактировать комплектующие</button>
+                <button class="m-3 btn btn-success">Update hardware</button>
             </a>
             <a class="nav-link" href="{{ route('user.deleteHardware') }}">
-                <button class="m-3 btn btn-danger">Удалить комплектующие</button>
+                <button class="m-3 btn btn-danger">Delete hardware</button>
             </a>
         @else
             <a class="nav-link" href="{{ route('user.requestHardware') }}">
-                <button class="m-3 btn btn-success">Подать заявку</button>
+                <button class="m-3 btn btn-success">Fill in hardware</button>
             </a>
         @endif
     @endauth

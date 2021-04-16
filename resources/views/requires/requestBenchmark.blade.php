@@ -21,7 +21,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Example select</label>
+            <label for="exampleFormControlSelect1">Nomination</label>
             <select class="form-control" id="exampleFormControlSelect1" name="nomination_id">
                 <option value="10" selected>CPU</option>
                 <option value="20">GPU</option>
