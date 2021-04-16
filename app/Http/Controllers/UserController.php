@@ -71,11 +71,9 @@ class UserController extends Controller
             'title' => 'Profile'
         );
 
-        $check = Hardware::where('user_id', Auth::id())->first()->getAttributes();
-
         $hardware = Hardware::where('user_id', Auth::id())->first();
 
-        return view('user.profile', compact('hardware', 'check'))->with($data);
+        return view('user.profile', compact('hardware'))->with($data);
     }
 
 
