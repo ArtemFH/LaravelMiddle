@@ -27,6 +27,10 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="confirm_password" class="col-form-label-lg">Repeat password</label>
+            <input id="confirm_password" class="form-control" name="confirm_password" type="password" value="" placeholder="Repeat password">
+        </div>
         <div class="form-group center">
             <button class="buttonSuccess btn btn-lg btn-primary" type="submit" name="send" value="1">Registration</button>
         </div>

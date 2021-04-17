@@ -17,8 +17,17 @@ class UserController extends Controller
         $validateFields = $request->validate([
             'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'confirm_password' => 'required|after:password'
         ]);
+
+        dd($request);
+
+        if (User::where('username', $validateFields['username'])->exists()) {
+            return redirect(route('user.registration'))->withErrors([
+                'username' => 'Such username already exists'
+            ]);
+        }
 
         if (User::where('email', $validateFields['email'])->exists()) {
             return redirect(route('user.registration'))->withErrors([
@@ -26,9 +35,9 @@ class UserController extends Controller
             ]);
         }
 
-        if (User::where('username', $validateFields['username'])->exists()) {
+        if ($request->password == $request->confirm_password) {
             return redirect(route('user.registration'))->withErrors([
-                'username' => 'Such username already exists'
+                'password' => 'Password does not match'
             ]);
         }
 
