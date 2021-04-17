@@ -18,10 +18,8 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'confirm_password' => 'required|after:password'
+            'confirm_password' => 'required'
         ]);
-
-        dd($request);
 
         if (User::where('username', $validateFields['username'])->exists()) {
             return redirect(route('user.registration'))->withErrors([
@@ -35,7 +33,7 @@ class UserController extends Controller
             ]);
         }
 
-        if ($request->password == $request->confirm_password) {
+        if ($request->password != $request->confirm_password) {
             return redirect(route('user.registration'))->withErrors([
                 'password' => 'Password does not match'
             ]);
