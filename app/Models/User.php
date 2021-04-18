@@ -12,16 +12,19 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    public $timestamps = false;
+
+    protected $casts = [
+        'awards_id' => 'array'
+    ];
+
     protected $fillable = [
         'username',
         'email',
         'password',
-        'role_id'
+        'avatar',
+        'role_id',
+        'awards_id'
     ];
 
     public function setPasswordAttribute($password)
@@ -32,6 +35,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function awards()
+    {
+        return $this->belongsTo(Award::class);
     }
 
     public function like_nomination()

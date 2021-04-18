@@ -7,11 +7,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -22,16 +17,10 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->foreignId('role_id')->nullable()->default('1')->constrained('roles')->onDelete('cascade');
             $table->foreignId('like_nomination_id')->nullable()->constrained('nominations')->onDelete('cascade');
-            $table->foreignId('award_id')->nullable()->constrained('awards')->onDelete('cascade');
-            $table->timestamps();
+            $table->json('awards_id')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');

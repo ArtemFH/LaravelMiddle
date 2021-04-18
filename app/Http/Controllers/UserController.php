@@ -8,7 +8,6 @@ use App\Models\User;
 use Hamcrest\Arrays\IsArrayWithSize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function Couchbase\basicEncoderV1;
 
 class UserController extends Controller
 {
@@ -18,7 +17,8 @@ class UserController extends Controller
             'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'confirm_password' => 'required'
+            'confirm_password' => 'required',
+            'awards_id' => 'required'
         ]);
 
         if (User::where('username', $validateFields['username'])->exists()) {
@@ -78,9 +78,17 @@ class UserController extends Controller
             'title' => 'Profile'
         );
 
+        $awards = User::find(Auth::id());
+
+//        $awards->update(['awards_id' => (array(1, 2, 30))]);
+//        $awards->save();
+
+        dd($this->awards = array('Award'));
+
         $hardware = Hardware::where('user_id', Auth::id())->first();
 
-        return view('user.profile', compact('hardware'))->with($data);
+
+        return view('user.profile', compact('hardware', 'awards'))->with($data);
     }
 
 

@@ -16,21 +16,27 @@ class AwardSeeder extends Seeder
     {
         $awards = [
             [
+                'id' => '1',
                 'name' => 'Best 1 CPU'
             ],
             [
+                'id' => '10',
                 'name' => 'Best 100 CPU'
             ],
             [
+                'id' => '2',
                 'name' => 'Best 1 GPU'
             ],
             [
+                'id' => '20',
                 'name' => 'Best 100 GPU'
             ],
             [
+                'id' => '3',
                 'name' => 'Best 1 RAM'
             ],
             [
+                'id' => '30',
                 'name' => 'Best 100 RAM'
             ],
         ];

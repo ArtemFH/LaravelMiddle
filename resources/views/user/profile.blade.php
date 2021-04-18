@@ -5,7 +5,9 @@
 @endsection
 @section('body')
     @auth
-        {{--        {{ dd($check) }}--}}
+        @foreach($awards->awards_id as $name)
+            <div>{{\App\Models\Award::find($name)->name}}</div>
+        @endforeach
         @if($hardware == !null)
             {{--            <ul class="p-3 w-50 list-group">--}}
             {{--                <li class="list-group-item">Любимая номинация: {{ $hardware->user->like_nomination->name }}</li>--}}
