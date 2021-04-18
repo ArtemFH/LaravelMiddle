@@ -14,6 +14,7 @@ class AdminController extends Controller
 //        $this->middleware('can:admin');
 //        $this->middleware('can:user');
 //        $this->middleware('can:moderator');
+//        $this->middleware('can:moderator');
     }
 
     public function index()
