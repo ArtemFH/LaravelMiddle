@@ -1,8 +1,9 @@
 @section('body')
     <div class="container mt-4">
+        {{--        {{dd($users)}}--}}
         @foreach($users as $user)
             <div class="card mb-3">
-                {{ dd($user->role) }}
+                {{--                                {{ dd($user->role) }}--}}
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ $user->username }}</li>
                     <li class="list-group-item">{{ $user->email }}</li>
