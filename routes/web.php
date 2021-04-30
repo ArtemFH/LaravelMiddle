@@ -54,3 +54,4 @@ Route::name('user.')->group(function () {
 
     Route::get('/deleteHardware', [\App\Http\Controllers\RequestHardwareController::class, 'deleteHardware'])->name('deleteHardware');
 });
+
