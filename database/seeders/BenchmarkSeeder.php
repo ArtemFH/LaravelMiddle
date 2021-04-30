@@ -16,7 +16,7 @@ class BenchmarkSeeder extends Seeder
     {
         $benchmarks = [
             [
-                'image' => '123.jpg',
+                'image' => 'benchmarks/test.jpg',
                 'score' => rand(2000, 50000),
                 'user_id' => rand(1, 5),
                 'nomination_id' => '10',

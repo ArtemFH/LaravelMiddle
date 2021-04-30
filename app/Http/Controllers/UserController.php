@@ -83,7 +83,7 @@ class UserController extends Controller
 //        $awards->update(['awards_id' => (array(1, 2, 30))]);
 //        $awards->save();
 
-        dd($this->awards = array('Award'));
+//        dd($this->awards = array('Award'));
 
         $hardware = Hardware::where('user_id', Auth::id())->first();
 
