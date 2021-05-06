@@ -1,5 +1,7 @@
 <?php
 
+//Voice Router
+
 use Illuminate\Support\Facades\Route;
 
 Route::name('home.')->group(function () {
@@ -54,3 +56,4 @@ Route::name('user.')->group(function () {
 
     Route::get('/deleteHardware', [\App\Http\Controllers\RequestHardwareController::class, 'deleteHardware'])->name('deleteHardware');
 });
+
