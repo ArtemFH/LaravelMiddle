@@ -1,7 +1,5 @@
 <?php
 
-//Voice Router
-
 use Illuminate\Support\Facades\Route;
 
 Route::name('home.')->group(function () {
