@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Voice
+
 Route::name('home.')->group(function () {
     Route::get('/', [\App\Http\Controllers\BenchmarkController::class, 'index'])->name('head');
 });
