@@ -72,21 +72,28 @@ class UserController extends Controller
 
     public function profileView(Request $request)
     {
-        //Допилить
-
         $data = array(
             'title' => 'Profile'
         );
 
-        $awards = User::find(Auth::id());
-
-//        $awards->update(['awards_id' => (array(1, 2, 30))]);
-//        $awards->save();
-
-//        dd($this->awards = array('Award'));
-
         $hardware = Hardware::where('user_id', Auth::id())->first();
 
+        $awards = User::find(Auth::id());
+
+//        $array = $awards->awards_id;
+
+        //        --- delete ---
+//        if ($key = array_search('2', $array)) {
+//            unset($array[$key]);
+//            $awards->awards_id = $array;
+//            $awards->save();
+//            unset($array);
+//        }
+
+        //        --- update ---
+//        array_push($array,'2');
+//        $awards->awards_id = $array;
+//        $awards->save();
 
         return view('user.profile', compact('hardware', 'awards'))->with($data);
     }

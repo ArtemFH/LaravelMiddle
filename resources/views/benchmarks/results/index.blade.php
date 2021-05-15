@@ -4,6 +4,7 @@
     <title>{{ $title }}</title>
 @endsection
 @section('body')
+
     {{--    {{ dd($indexResultGet) }}--}}
     <div class="container col-8 pb-4">
         <div class="row card">
