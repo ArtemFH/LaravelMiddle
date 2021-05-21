@@ -64,7 +64,6 @@ class RequestHardwareController extends Controller
             'nomination_id' => 'required'
         ]);
 
-
         $filename = Storage::disk('public')->put('benchmarks', $request->image);
 
         Benchmark::create($request->only('score', 'nomination_id') + ['image' => $filename, 'user_id' => Auth::id()]);
